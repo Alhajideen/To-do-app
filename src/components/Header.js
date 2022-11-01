@@ -6,7 +6,7 @@ const Header = () => {
     lineHeight: '1.5em',
   };
   return (
-    <header>
+    <header style={headerStyle}>
       <h1
         style={{
           fontSize: '6rem',
