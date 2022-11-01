@@ -29,7 +29,10 @@ class TodoContainer extends React.Component {
     return (
       <div>
         <Header />
-        <TodosList todos={this.state.todos} />
+        <TodosList
+          todos={this.state.todos}
+          handleChangeProps={this.handleChange}
+        />
       </div>
     );
   }
