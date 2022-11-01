@@ -26,11 +26,18 @@ class TodoContainer extends React.Component {
     this.setState((prevState) => ({
       todos: prevState.todos.map((todo) => {
         if (todo.id === id) {
-          todo.completed = !todo.completed;
+          return {
+            ...todo,
+            completed: !todo.completed,
+          };
         }
         return todo;
       }),
     }));
+  };
+
+  delTodo = (id) => {
+    console.log('deleted', id);
   };
   render() {
     return (
@@ -39,6 +46,7 @@ class TodoContainer extends React.Component {
         <TodosList
           todos={this.state.todos}
           handleChangeProps={this.handleChange}
+          deleteTodoProps={this.delTodo}
         />
       </div>
     );
