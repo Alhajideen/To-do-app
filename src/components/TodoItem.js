@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './TodoItem.module.css';
 
 const TodoItem = (props) => {
@@ -7,6 +7,13 @@ const TodoItem = (props) => {
   const handleEditing = () => {
     setEditing(true);
   };
+
+  useEffect(
+    () => () => {
+
+    },
+    [],
+  );
 
   const handleUpdatedDone = (event) => {
     if (event.key === 'Enter') {
@@ -23,20 +30,14 @@ const TodoItem = (props) => {
 
   const { completed, id, title } = props.todo;
 
-  let viewMode = {};
-  let editMode = {};
+  const viewMode = {};
+  const editMode = {};
 
   if (editing) {
     viewMode.display = 'none';
   } else {
     editMode.display = 'none';
   }
-
-  useEffect(() => {
-    return () => {
-      console.log('Cleaning up...');
-    };
-  }, []);
 
   return (
     <li className={styles.item}>
@@ -47,7 +48,9 @@ const TodoItem = (props) => {
           checked={completed}
           onChange={() => props.handleChangeProps(id)}
         />
-        <button onClick={() => props.deleteTodoProps(id)}>Delete</button>
+        <button type="submit" onClick={() => props.deleteTodoProps(id)}>
+          🗑️
+        </button>
         <span style={completed ? completedStyle : null}>{title}</span>
       </div>
       <input
