@@ -12,8 +12,6 @@ const InputTodo = (props) => {
     if (title.trim()) {
       props.addTodoProps(title);
       setTitle('');
-    } else {
-      alert('Please write item');
     }
   };
 
